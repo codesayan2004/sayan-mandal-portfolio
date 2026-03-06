@@ -1,5 +1,4 @@
-
-import React, { useEffect, Suspense } from 'react';
+import React, { useEffect } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import About from './components/About';
@@ -11,9 +10,11 @@ import Footer from './components/Footer';
 import CustomCursor from './components/CustomCursor';
 import ParticlesBackground from "./components/ParticlesBackground";
 import { motion, useScroll, useSpring } from 'framer-motion';
+import { Toaster } from "react-hot-toast";
 
 const App: React.FC = () => {
   const { scrollYProgress } = useScroll();
+
   const scaleX = useSpring(scrollYProgress, {
     stiffness: 100,
     damping: 30,
@@ -29,18 +30,27 @@ const App: React.FC = () => {
   }, []);
 
   return (
-    <div className="bg-[#030712] min-h-screen text-slate-200">
+    <>
+    <Toaster position="top-right" />
+    <div className="relative bg-[#030712] min-h-screen text-slate-200">
+
+      {/* Custom Cursor */}
       <CustomCursor />
-      
+
+      {/* Animated Particle Background */}
+      <ParticlesBackground />
+
       {/* Scroll Progress Indicator */}
       <motion.div
         className="fixed top-0 left-0 right-0 h-1 bg-indigo-500 origin-left z-[100]"
         style={{ scaleX }}
       />
 
+      {/* Navbar */}
       <Navbar />
 
-      <main>
+      {/* Main Content */}
+      <main className="relative z-10">
         <Hero />
         <About />
         <Skills />
@@ -49,12 +59,15 @@ const App: React.FC = () => {
         <Contact />
       </main>
 
+      {/* Footer */}
       <Footer />
-      
-      {/* Subtle Background Glows */}
+
+      {/* Background Glow Effects */}
       <div className="fixed top-[-10%] left-[-10%] w-[50%] h-[50%] bg-indigo-600/5 blur-[150px] pointer-events-none rounded-full"></div>
       <div className="fixed bottom-[-10%] right-[-10%] w-[50%] h-[50%] bg-purple-600/5 blur-[150px] pointer-events-none rounded-full"></div>
+
     </div>
+    </>
   );
 };
 

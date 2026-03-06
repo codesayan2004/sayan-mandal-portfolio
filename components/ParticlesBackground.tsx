@@ -1,59 +1,117 @@
-import { useCallback } from "react";
-import Particles from "react-tsparticles";
-import { loadFull } from "tsparticles";
+import { useEffect, useState } from "react";
+import Particles from "@tsparticles/react";
+import { initParticlesEngine } from "@tsparticles/react";
+import { loadSlim } from "@tsparticles/slim";
 
 const ParticlesBackground = () => {
+  const [init, setInit] = useState(false);
 
-  const particlesInit = useCallback(async (engine: any) => {
-    await loadFull(engine);
+  useEffect(() => {
+    initParticlesEngine(async (engine) => {
+      await loadSlim(engine);
+    }).then(() => {
+      setInit(true);
+    });
   }, []);
+
+  if (!init) return null;
 
   return (
     <Particles
       id="tsparticles"
-      init={particlesInit}
+      className="fixed top-0 left-0 w-full h-full z-0 pointer-events-none"
       options={{
-        fullScreen: { enable: true, zIndex: -1 },
         background: {
-          color: "#0f172a" // change to match your theme
+          color: "transparent",
         },
+
+        fpsLimit: 60,
+
         particles: {
           number: {
-            value: 60
+            value: 130,
+            density: { enable: true },
           },
+
+          color: {
+            value: ["#6366f1", "#8b5cf6", "#a78bfa", "#ffffff"],
+          },
+
+          shape: {
+            type: ["circle", "star"],
+          },
+
+          opacity: {
+            value: {
+              min: 0.2,
+              max: 0.7,
+            },
+            animation: {
+              enable: true,
+              speed: 0.8,
+              sync: false,
+            },
+          },
+
           size: {
-            value: 3
+            value: {
+              min: 1,
+              max: 4,
+            },
+            animation: {
+              enable: true,
+              speed: 2,
+              sync: false,
+            },
           },
+
           move: {
             enable: true,
-            speed: 1
+            speed: 0.3,
+            random: true,
+            direction: "none",
+            outModes: {
+              default: "out",
+            },
           },
+
           links: {
             enable: true,
             distance: 150,
-            opacity: 0.3
-          }
+            opacity: 0.25,
+            width: 1,
+            color: "#6366f1",
+          },
         },
+
         interactivity: {
           events: {
             onHover: {
               enable: true,
-              mode: "repulse"
+              mode: "grab",
             },
+
             onClick: {
               enable: true,
-              mode: "push"
-            }
-          },
-          modes: {
-            repulse: {
-              distance: 100
+              mode: "push",
             },
+          },
+
+          modes: {
+            grab: {
+              distance: 180,
+              links: {
+                opacity: 0.5,
+              },
+            },
+
             push: {
-              quantity: 4
-            }
-          }
-        }
+              quantity: 5,
+            },
+          },
+        },
+
+        detectRetina: true,
       }}
     />
   );
