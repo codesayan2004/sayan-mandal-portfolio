@@ -8,6 +8,7 @@ import Experience from './components/Experience';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import CustomCursor from './components/CustomCursor';
+import Courses from './components/Courses';
 import ParticlesBackground from "./components/ParticlesBackground";
 import { motion, useScroll, useSpring } from 'framer-motion';
 import { Toaster } from "react-hot-toast";
@@ -54,6 +55,7 @@ const App: React.FC = () => {
         <Hero />
         <About />
         <Skills />
+        <Courses />
         <Projects />
         <Experience />
         <Contact />

@@ -11,13 +11,20 @@ export const RESUME_DATA = {
   // Placeholder images - Replace these URLs with your actual image paths
   profileImageUrl: "/profile.jpeg", // Add your profile image URL here
   logoUrl: "", // Add your logo URL here, e.g., "/logo.png"
-  about: "I am a B.Tech Computer Science and Engineering student at IIT Guwahati with a passion for building scalable systems and solving complex algorithmic challenges. Currently maintaining a 8.02 CGPA, I focus on full-stack development, cloud technologies, and competitive programming.",
+  about: "I am a Computer Science and Engineering undergraduate at IIT Guwahati who enjoys building real-world software systems. My work focuses on full-stack development, backend engineering, and cloud infrastructure, with a strong interest in designing scalable and reliable systems.",
 };
 
 export const PROJECTS: Project[] = [
   {
     title: "CodeSphere",
-    description: "A robust full-stack online judge supporting real-time code execution in 5+ languages with sandboxed Docker containers.",
+    description:
+      "A full-stack online judge platform supporting real-time multi-language code execution.",
+      highlights: [
+        "Docker sandboxed execution",
+        "Monaco Editor integration",
+        "AWS EC2 deployment (Nginx + Gunicorn)",
+        "Multi-language runtime support"
+      ],
     tech: ["Django", "Docker", "AWS EC2", "Tailwind CSS", "Monaco Editor"],
     github: "https://github.com/codesayan2004/OJ",
     live: "https://www.loom.com/share/6e6c058402d240bcab52e2c7ff3ca1b5?sid=cf73ad9e-9228-49f4-b8c9-da2b8025a3ec",
@@ -25,30 +32,37 @@ export const PROJECTS: Project[] = [
   },
   {
     title: "Verizo",
-    description: "Cross-platform news application with category-specific feeds and Firebase-powered user profiles.",
+    description:
+      "A cross-platform mobile news application built with React Native.",
+      highlights: [
+        "Firebase authentication",
+        "Firestore bookmark persistence",
+        "GNews API category feeds",
+        "AsyncStorage session management"
+      ],
     tech: ["React Native", "Expo", "Firebase", "GNews API"],
     github: "https://github.com/codesayan2004/news-app",
+    live: "https://drive.google.com/file/d/12-uH664tuIRmwuebeO7cm0cUgWqVZYtQ/view",
     image: "/Verizo.jpeg",
-    live: "https://drive.google.com/file/d/12-uH664tuIRmwuebeO7cm0cUgWqVZYtQ/view"
   }
 ];
 
 export const SKILL_CATEGORIES: SkillCategory[] = [
   {
     name: "Languages",
-    skills: ["C", "C++", "Python", "JavaScript", "Java", "Haskell", "Prolog"]
+    skills: ["C", "C++", "Python", "JavaScript", "Java", "Haskell", "Prolog", "x86 Assembly (NASM)"]
   },
   {
     name: "Web Technologies",
-    skills: ["HTML5", "CSS3", "React.js", "React Native", "Django", "REST APIs", "Tailwind CSS"]
+    skills: ["HTML5", "CSS3", "React.js", "React Native", "Django", "REST APIs", "Tailwind CSS", "Bootstrap"]
   },
   {
-    name: "Infrastructure & DB",
-    skills: ["Docker", "AWS EC2", "Git", "GitHub", "MySQL", "MongoDB"]
+    name: "Backend & Databases",
+    skills: ["MySQL", "MongoDB", "Firebase", "Firestore"]
   },
   {
-    name: "Core CS",
-    skills: ["Data Structures", "Algorithms", "OS", "DBMS", "Computer Networks", "Machine Learning"]
+    name: "DevOps & Tools",
+    skills: ["Docker", "AWS EC2", "Git", "GitHub"]
   }
 ];
 

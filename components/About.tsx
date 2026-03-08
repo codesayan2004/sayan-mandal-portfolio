@@ -30,7 +30,7 @@ const About: React.FC = () => {
               {RESUME_DATA.about}
             </p>
             <p className="text-lg text-slate-400 leading-relaxed font-light">
-              I am passionate about systems programming and full-stack engineering. My goal is to build secure, high-performance software that makes a real-world impact. Currently, I am exploring the intersections of Cloud Infrastructure and Algorithmic Efficiency.
+            Beyond application development, I am particularly interested in systems programming, computer networking, and algorithmic problem solving. I enjoy exploring how efficient algorithms and well-designed infrastructure can work together to build secure, high-performance software.
             </p>
           </motion.div>
 
