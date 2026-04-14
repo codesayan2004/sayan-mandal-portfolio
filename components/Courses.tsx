@@ -14,8 +14,9 @@ const COURSES = [
   "Randomized Algorithm",
   "Digital Design",
   "Database Management System",
-  "Advanced Networking",
-  "Software Engineering"
+  "Software Engineering",
+  "Operating Systems",
+  "Compiler Design"
 ];
 
 const Courses: React.FC = () => {

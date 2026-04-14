@@ -24,6 +24,7 @@ const Projects: React.FC = () => {
 
           <a
             href="https://github.com/codesayan2004"
+            target="_blank"
             className="text-indigo-400 font-medium hover:underline flex items-center gap-2"
           >
             View all on GitHub <Github size={18} />
@@ -79,6 +80,7 @@ const Projects: React.FC = () => {
                 <div className="flex gap-4">
                   <a
                     href={project.github}
+                    target="_blank"
                     className="flex items-center gap-2 text-sm text-slate-300 hover:text-white transition-colors"
                   >
                     <Github size={18} /> Source
@@ -87,6 +89,7 @@ const Projects: React.FC = () => {
                   {project.live && (
                     <a
                       href={project.live}
+                      target="_blank"
                       className="flex items-center gap-2 text-sm text-slate-300 hover:text-white transition-colors"
                     >
                       <ExternalLink size={18} /> Live Demo

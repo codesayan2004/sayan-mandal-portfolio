@@ -16,6 +16,21 @@ export const RESUME_DATA = {
 
 export const PROJECTS: Project[] = [
   {
+    title: "Internet-Scale BGP Security Analysis",
+    description:
+      "An Internet-scale BGP simulation project analyzing routing security and resilience using a 76K+ AS topology.",
+    highlights: [
+      "Extended InternetSim to support large-scale real-time BGP simulations",
+      "Built an interactive CLI for dynamic experimentation and analysis",
+      "Implemented policy injection to analyze adversarial routing behavior",
+      "Simulated prefix hijacking attacks and evaluated Route Origin Validation (ROV)"
+    ],
+    tech: ["C++", "Python", "Cython", "InternetSim", "BGP", "AS-level topology"],
+    github: "https://github.com/codesayan2004/InternetSim",
+    live: "https://docs.google.com/document/d/167HROjDy92dm8Q70GRSvWVcedp8weOBQ/edit?usp=sharing&ouid=108831923057726748677&rtpof=true&sd=true",
+    image: "/bgp-sim.png",
+  },
+  {
     title: "CodeSphere",
     description:
       "A full-stack online judge platform supporting real-time multi-language code execution.",
@@ -50,7 +65,7 @@ export const PROJECTS: Project[] = [
 export const SKILL_CATEGORIES: SkillCategory[] = [
   {
     name: "Languages",
-    skills: ["C", "C++", "Python", "JavaScript", "Java", "Haskell", "Prolog", "x86 Assembly (NASM)"]
+    skills: ["C", "C++", "Python", "JavaScript", "Java", "Functional Programming(Haskell)", "Logic Programming(Prolog)", "x86 Assembly (NASM)"]
   },
   {
     name: "Web Technologies",

@@ -36,7 +36,7 @@ const App: React.FC = () => {
     <div className="relative bg-[#030712] min-h-screen text-slate-200">
 
       {/* Custom Cursor */}
-      <CustomCursor />
+      {/* <CustomCursor /> */}
 
       {/* Animated Particle Background */}
       <ParticlesBackground />
