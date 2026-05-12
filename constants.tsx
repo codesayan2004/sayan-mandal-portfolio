@@ -35,10 +35,10 @@ export const PROJECTS: Project[] = [
     description:
       "A full-stack online judge platform supporting real-time multi-language code execution.",
       highlights: [
-        "Docker sandboxed execution",
-        "Monaco Editor integration",
-        "AWS EC2 deployment (Nginx + Gunicorn)",
-        "Multi-language runtime support"
+        "Built a full-stack Online Judge using Django, Docker, and AWS",
+        "Enabled real-time execution for C, C++, Java, Python, and JavaScript",
+        "Integrated Monaco Editor with secure sandboxed execution using Docker",
+        "Deployed independently using Nginx, Gunicorn, AWS EC2, and AWS ECR"
       ],
     tech: ["Django", "Docker", "AWS EC2", "Tailwind CSS", "Monaco Editor"],
     github: "https://github.com/codesayan2004/OJ",
@@ -50,10 +50,10 @@ export const PROJECTS: Project[] = [
     description:
       "A cross-platform mobile news application built with React Native.",
       highlights: [
-        "Firebase authentication",
-        "Firestore bookmark persistence",
-        "GNews API category feeds",
-        "AsyncStorage session management"
+        "Built a React Native news app using Expo and GNews API",
+        "Implemented Firebase Authentication and Firestore for user data management",
+        "Used AsyncStorage for persistent login sessions and theme preferences",
+        "Generated deployable Android APK and tested application on real devices"
       ],
     tech: ["React Native", "Expo", "Firebase", "GNews API"],
     github: "https://github.com/codesayan2004/news-app",
@@ -107,8 +107,8 @@ export const ACHIEVEMENTS: Achievement[] = [
 export const EXPERIENCES: Experience[] = [
   {
     role: "Upcoming SDE Intern",
-    company: "Zscaler",
-    duration: "May 2026 – June 2026",
+    company: "Zscaler, Hyderabad",
+    duration: "May 2026 – July 2026",
     description: "Preparing to work with the Networking Domain and high-performance cloud security systems."
   },
   {
