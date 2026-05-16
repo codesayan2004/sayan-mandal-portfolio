@@ -46,6 +46,21 @@ export const PROJECTS: Project[] = [
     image: "/codesphere.png",
   },
   {
+    title: "PyAgent",
+    description:
+      "An autonomous AI coding agent for Python repositories.",
+    highlights: [
+      "Autonomously analyzes, debugs, and fixes Python repository issues",
+      "Uses Gemini function calling for intelligent tool orchestration workflows",
+      "Executes tests and validates fixes through iterative execution loops",
+      "Supports configurable repository-scoped execution across multiple Py projects"
+    ],
+    tech: ["Python", "Gemini API", "LLM Tool Calling", "CLI", "AI Agents"],
+    github: "https://github.com/codesayan2004/PyAgent",
+    live: "",
+    image: "/pyagent.png",
+  },
+  {
     title: "Verizo",
     description:
       "A cross-platform mobile news application built with React Native.",
@@ -84,7 +99,7 @@ export const SKILL_CATEGORIES: SkillCategory[] = [
 export const ACHIEVEMENTS: Achievement[] = [
   {
     title: "Codeforces Pupil",
-    detail: "Peak rating of 1357, ID: sayan_mandal",
+    detail: "Peak rating of 1359, ID: sayan_mandal",
     year: "2025"
   },
   {
@@ -106,7 +121,7 @@ export const ACHIEVEMENTS: Achievement[] = [
 
 export const EXPERIENCES: Experience[] = [
   {
-    role: "Upcoming SDE Intern",
+    role: "Software Development Internship",
     company: "Zscaler, Hyderabad",
     duration: "May 2026 – July 2026",
     description: "Preparing to work with the Networking Domain and high-performance cloud security systems."
