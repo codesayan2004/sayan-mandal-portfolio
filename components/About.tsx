@@ -7,7 +7,7 @@ import { GraduationCap, Award, Brain, Target } from 'lucide-react';
 const About: React.FC = () => {
   const highlights = [
     { icon: <GraduationCap />, title: "IIT Guwahati", desc: "B.Tech CSE" },
-    { icon: <Award />, title: "8.02 CGPA", desc: "Consistency" },
+    { icon: <Award />, title: "8.00 CGPA", desc: "Consistency" },
     { icon: <Brain />, title: "Problem Solver", desc: "Competitive Programming" },
     { icon: <Target />, title: "Zscaler Intern", desc: "Cloud & Security" },
   ];

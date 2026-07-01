@@ -3,7 +3,7 @@ import { Project, SkillCategory, Achievement, Experience } from './types';
 
 export const RESUME_DATA = {
   name: "Sayan Mandal",
-  tagline: "Computer Science Engineer | Problem Solver | Networks & Systems Enthusiast",
+  tagline: "Computer Science Engineer | Machine Learning | Cloud | Networks & Systems Enthusiast",
   email: "mandalsayan2004@gmail.com",
   phone: "+91-8250223279",
   github: "https://github.com/codesayan2004",
@@ -92,15 +92,15 @@ export const SKILL_CATEGORIES: SkillCategory[] = [
   },
   {
     name: "DevOps & Tools",
-    skills: ["Docker", "AWS EC2", "Git", "GitHub"]
+    skills: ["Docker", "AWS", "Git", "GitHub", "GitLab"]
   }
 ];
 
 export const ACHIEVEMENTS: Achievement[] = [
   {
-    title: "Codeforces Pupil",
-    detail: "Peak rating of 1359, ID: sayan_mandal",
-    year: "2025"
+    title: "Codeforces Specialist",
+    detail: "Peak rating of 1423, ID: sayan_mandal",
+    year: "2026"
   },
   {
     title: "IICPC Codefest Prelims",
@@ -121,10 +121,10 @@ export const ACHIEVEMENTS: Achievement[] = [
 
 export const EXPERIENCES: Experience[] = [
   {
-    role: "Software Development Internship",
+    role: "Software Engineer Internship",
     company: "Zscaler, Hyderabad",
     duration: "May 2026 – July 2026",
-    description: "Preparing to work with the Networking Domain and high-performance cloud security systems."
+    description: "Developed ML-based access recommendation systems for ZPA using clustering techniques to identify over-permissioned access and improve permission governance."
   },
   {
     role: "Academic Mentor",
