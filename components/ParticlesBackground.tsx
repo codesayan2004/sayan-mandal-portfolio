@@ -92,7 +92,7 @@ const ParticlesBackground = () => {
             },
 
             onClick: {
-              enable: true,
+              enable: false,
               mode: "push",
             },
           },
