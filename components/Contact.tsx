@@ -13,6 +13,7 @@ import {
 } from "lucide-react";
 import toast from "react-hot-toast";
 import { RESUME_DATA } from "../constants";
+import { useTheme } from "../ThemeContext";
 
 const socialLinks = [
   { icon: Github, url: "https://github.com/codesayan2004" },
@@ -25,6 +26,7 @@ const socialLinks = [
 
 const Contact: React.FC = () => {
   const [loading, setLoading] = useState(false);
+  const { theme } = useTheme();
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -58,7 +60,7 @@ const Contact: React.FC = () => {
 
   return (
     <section id="contact" className="py-24 px-6 relative overflow-hidden">
-      <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-purple-600/5 blur-[120px] rounded-full"></div>
+      <div className={`absolute bottom-0 left-0 w-[600px] h-[600px] blur-[120px] rounded-full ${theme === 'dark' ? 'bg-purple-600/5' : 'bg-purple-400/5'}`}></div>
 
       <div className="max-w-7xl mx-auto relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
@@ -71,35 +73,35 @@ const Contact: React.FC = () => {
               Get In Touch
             </h2>
 
-            <p className="text-slate-400 mb-12 text-lg leading-relaxed">
+            <p className={`mb-12 text-lg leading-relaxed ${theme === 'dark' ? 'text-slate-400' : 'text-slate-600'}`}>
               Have an interesting project or a job opportunity? I'm always open
               to discussing new ideas and collaborations. Drop me a line!
             </p>
 
             <div className="space-y-6 mb-12">
-              <div className="flex items-center gap-6 p-4 rounded-2xl glass hover:bg-white/5 transition-colors">
+              <a href={`mailto:${RESUME_DATA.email}`} className={`flex items-center gap-6 p-4 rounded-2xl glass border transition-colors ${theme === 'dark' ? 'hover:bg-white/5 border-white/5' : 'hover:bg-slate-100 border-slate-300'}`}>
                 <div className="w-12 h-12 rounded-xl bg-indigo-500/10 flex items-center justify-center text-indigo-400">
                   <Mail />
                 </div>
                 <div>
-                  <p className="text-xs text-slate-500 font-bold uppercase tracking-widest">
+                  <p className="text-xs font-bold uppercase tracking-widest text-indigo-400">
                     Email
                   </p>
-                  <p className="text-slate-200">{RESUME_DATA.email}</p>
+                  <p className={theme === 'dark' ? 'text-slate-200' : 'text-slate-800'}>{RESUME_DATA.email}</p>
                 </div>
-              </div>
+              </a>
 
-              <div className="flex items-center gap-6 p-4 rounded-2xl glass hover:bg-white/5 transition-colors">
+              <a href={`tel:${RESUME_DATA.phone}`} className={`flex items-center gap-6 p-4 rounded-2xl glass border transition-colors ${theme === 'dark' ? 'hover:bg-white/5 border-white/5' : 'hover:bg-slate-100 border-slate-300'}`}>
                 <div className="w-12 h-12 rounded-xl bg-purple-500/10 flex items-center justify-center text-purple-400">
                   <Phone />
                 </div>
                 <div>
-                  <p className="text-xs text-slate-500 font-bold uppercase tracking-widest">
+                  <p className="text-xs font-bold uppercase tracking-widest text-purple-400">
                     Call
                   </p>
-                  <p className="text-slate-200">{RESUME_DATA.phone}</p>
+                  <p className={theme === 'dark' ? 'text-slate-200' : 'text-slate-800'}>{RESUME_DATA.phone}</p>
                 </div>
-              </div>
+              </a>
             </div>
 
             <div className="flex gap-4">
@@ -112,7 +114,7 @@ const Contact: React.FC = () => {
                     href={item.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-12 h-12 rounded-full glass flex items-center justify-center text-slate-400 hover:text-white hover:bg-indigo-600/20 transition-all border border-white/10 hover:border-indigo-500/30"
+                    className={`w-12 h-12 rounded-full glass flex items-center justify-center transition-all border hover:bg-indigo-600/20 hover:border-indigo-500/30 ${theme === 'dark' ? 'text-slate-400 hover:text-white border-white/10' : 'text-slate-600 hover:text-slate-900 border-slate-400'}`}
                   >
                     <Icon size={20} />
                   </a>
@@ -125,59 +127,59 @@ const Contact: React.FC = () => {
             initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className="glass p-8 rounded-3xl border border-white/5 shadow-2xl"
+            className={`glass p-8 rounded-3xl border shadow-2xl ${theme === 'dark' ? 'border-white/5' : 'border-slate-300'}`}
           >
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid grid-cols-2 gap-6">
                 <div className="space-y-2">
-                  <label className="text-xs font-bold text-slate-400 uppercase tracking-widest">
+                  <label className={`text-xs font-bold uppercase tracking-widest ${theme === 'dark' ? 'text-slate-400' : 'text-slate-600'}`}>
                     Name
                   </label>
                   <input
                     type="text"
                     name="name"
                     required
-                    className="w-full bg-slate-900/50 border border-white/10 rounded-xl px-4 py-3 outline-none focus:border-indigo-500 transition-colors"
+                    className={`w-full rounded-xl px-4 py-3 outline-none focus:border-indigo-500 transition-colors ${theme === 'dark' ? 'bg-slate-900/50 border-white/10' : 'bg-slate-100 border-slate-300'}`}
                     placeholder="John Doe"
                   />
                 </div>
 
                 <div className="space-y-2">
-                  <label className="text-xs font-bold text-slate-400 uppercase tracking-widest">
+                  <label className={`text-xs font-bold uppercase tracking-widest ${theme === 'dark' ? 'text-slate-400' : 'text-slate-600'}`}>
                     Email
                   </label>
                   <input
                     type="email"
                     name="email"
                     required
-                    className="w-full bg-slate-900/50 border border-white/10 rounded-xl px-4 py-3 outline-none focus:border-indigo-500 transition-colors"
+                    className={`w-full rounded-xl px-4 py-3 outline-none focus:border-indigo-500 transition-colors ${theme === 'dark' ? 'bg-slate-900/50 border-white/10' : 'bg-slate-100 border-slate-300'}`}
                     placeholder="john@example.com"
                   />
                 </div>
               </div>
 
               <div className="space-y-2">
-                <label className="text-xs font-bold text-slate-400 uppercase tracking-widest">
+                <label className={`text-xs font-bold uppercase tracking-widest ${theme === 'dark' ? 'text-slate-400' : 'text-slate-600'}`}>
                   Subject
                 </label>
                 <input
                   type="text"
                   name="subject"
                   required
-                  className="w-full bg-slate-900/50 border border-white/10 rounded-xl px-4 py-3 outline-none focus:border-indigo-500 transition-colors"
+                  className={`w-full rounded-xl px-4 py-3 outline-none focus:border-indigo-500 transition-colors ${theme === 'dark' ? 'bg-slate-900/50 border-white/10' : 'bg-slate-100 border-slate-300'}`}
                   placeholder="Let's build something"
                 />
               </div>
 
               <div className="space-y-2">
-                <label className="text-xs font-bold text-slate-400 uppercase tracking-widest">
+                <label className={`text-xs font-bold uppercase tracking-widest ${theme === 'dark' ? 'text-slate-400' : 'text-slate-600'}`}>
                   Message
                 </label>
                 <textarea
                   rows={4}
                   name="message"
                   required
-                  className="w-full bg-slate-900/50 border border-white/10 rounded-xl px-4 py-3 outline-none focus:border-indigo-500 transition-colors"
+                  className={`w-full rounded-xl px-4 py-3 outline-none focus:border-indigo-500 transition-colors ${theme === 'dark' ? 'bg-slate-900/50 border-white/10' : 'bg-slate-100 border-slate-300'}`}
                   placeholder="Hello Sayan, I was wondering if..."
                 />
               </div>

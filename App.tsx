@@ -12,9 +12,11 @@ import Courses from './components/Courses';
 import ParticlesBackground from "./components/ParticlesBackground";
 import { motion, useScroll, useSpring } from 'framer-motion';
 import { Toaster } from "react-hot-toast";
+import { useTheme } from './ThemeContext';
 
 const App: React.FC = () => {
   const { scrollYProgress } = useScroll();
+  const { theme } = useTheme();
 
   const scaleX = useSpring(scrollYProgress, {
     stiffness: 100,
@@ -33,7 +35,7 @@ const App: React.FC = () => {
   return (
     <>
     <Toaster position="top-right" />
-    <div className="relative bg-[#030712] min-h-screen text-slate-200">
+    <div className={`relative min-h-screen ${theme === 'dark' ? 'bg-[#030712] text-slate-200' : 'bg-white text-slate-900'}`}>
 
       {/* Custom Cursor */}
       {/* <CustomCursor /> */}
@@ -65,8 +67,8 @@ const App: React.FC = () => {
       <Footer />
 
       {/* Background Glow Effects */}
-      <div className="fixed top-[-10%] left-[-10%] w-[50%] h-[50%] bg-indigo-600/5 blur-[150px] pointer-events-none rounded-full"></div>
-      <div className="fixed bottom-[-10%] right-[-10%] w-[50%] h-[50%] bg-purple-600/5 blur-[150px] pointer-events-none rounded-full"></div>
+      <div className={`fixed top-[-10%] left-[-10%] w-[50%] h-[50%] blur-[150px] pointer-events-none rounded-full ${theme === 'dark' ? 'bg-indigo-600/5' : 'bg-indigo-400/10'}`}></div>
+      <div className={`fixed bottom-[-10%] right-[-10%] w-[50%] h-[50%] blur-[150px] pointer-events-none rounded-full ${theme === 'dark' ? 'bg-purple-600/5' : 'bg-purple-400/10'}`}></div>
 
     </div>
     </>

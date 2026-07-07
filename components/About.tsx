@@ -3,8 +3,11 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { RESUME_DATA } from '../constants';
 import { GraduationCap, Award, Brain, Target } from 'lucide-react';
+import { useTheme } from '../ThemeContext';
 
 const About: React.FC = () => {
+  const { theme } = useTheme();
+
   const highlights = [
     { icon: <GraduationCap />, title: "IIT Guwahati", desc: "B.Tech CSE" },
     { icon: <Award />, title: "8.00 CGPA", desc: "Consistency" },
@@ -13,7 +16,7 @@ const About: React.FC = () => {
   ];
 
   return (
-    <section id="about" className="py-24 px-6 bg-[#030712]">
+    <section id="about" className={`py-24 px-6 ${theme === 'dark' ? 'bg-[#030712]' : 'bg-slate-50'}`}>
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
           <motion.div 
@@ -26,10 +29,10 @@ const About: React.FC = () => {
               <span className="w-12 h-1 bg-indigo-500 rounded-full"></span>
               About Me
             </h2>
-            <p className="text-lg text-slate-400 leading-relaxed mb-6 font-light">
+            <p className={`text-lg leading-relaxed mb-6 font-light ${theme === 'dark' ? 'text-slate-400' : 'text-slate-600'}`}>
               {RESUME_DATA.about}
             </p>
-            <p className="text-lg text-slate-400 leading-relaxed font-light">
+            <p className={`text-lg leading-relaxed font-light ${theme === 'dark' ? 'text-slate-400' : 'text-slate-600'}`}>
             Beyond application development, I am particularly interested in systems programming, computer networking, and algorithmic problem solving. I enjoy exploring how efficient algorithms and well-designed infrastructure can work together to build secure, high-performance software.
             </p>
           </motion.div>
@@ -41,10 +44,10 @@ const About: React.FC = () => {
             className="grid grid-cols-2 gap-4"
           >
             {highlights.map((h, i) => (
-              <div key={i} className="glass p-6 rounded-2xl border border-white/5 hover:border-indigo-500/30 transition-all group">
+              <div key={i} className={`glass p-6 rounded-2xl border hover:border-indigo-500/30 transition-all group ${theme === 'dark' ? 'border-white/5' : 'border-slate-300'}`}>
                 <div className="text-indigo-400 mb-4 group-hover:scale-110 transition-transform">{h.icon}</div>
-                <h3 className="font-bold text-sm text-slate-200">{h.title}</h3>
-                <p className="text-xs text-slate-500">{h.desc}</p>
+                <h3 className={`font-bold text-sm ${theme === 'dark' ? 'text-slate-200' : 'text-slate-800'}`}>{h.title}</h3>
+                <p className={`text-xs ${theme === 'dark' ? 'text-slate-500' : 'text-slate-600'}`}>{h.desc}</p>
               </div>
             ))}
           </motion.div>

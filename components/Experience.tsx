@@ -2,16 +2,19 @@ import React from "react";
 import { motion } from "framer-motion";
 import { EXPERIENCES, ACHIEVEMENTS } from "../constants";
 import { Briefcase, Trophy, Calendar } from "lucide-react";
+import { useTheme } from "../ThemeContext";
 
 const Experience: React.FC = () => {
+  const { theme } = useTheme();
+
   return (
     <section id="experience" className="py-24 px-6 relative overflow-hidden">
       {/* Glow background */}
-      <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-purple-600/10 blur-[120px] rounded-full"></div>
+      <div className={`absolute bottom-0 right-0 w-[500px] h-[500px] blur-[120px] rounded-full ${theme === 'dark' ? 'bg-purple-600/10' : 'bg-purple-400/5'}`}></div>
 
       <div className="max-w-7xl mx-auto relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-16">
         {/* Work Experience */}
-        <div className="glass p-10 rounded-3xl border border-white/5 backdrop-blur-md relative">
+        <div className={`glass p-10 rounded-3xl border backdrop-blur-md relative ${theme === 'dark' ? 'border-white/5' : 'border-slate-300'}`}>
           <h2 className="text-3xl font-bold mb-12 flex items-center gap-4">
             <Briefcase className="text-indigo-500" /> Professional Journey
           </h2>
@@ -34,13 +37,13 @@ const Experience: React.FC = () => {
                   <Calendar size={12} /> {exp.duration}
                 </span>
 
-                <h3 className="text-xl font-bold">{exp.role}</h3>
+                <h3 className={`text-xl font-bold ${theme === 'dark' ? 'text-slate-200' : 'text-slate-800'}`}>{exp.role}</h3>
 
                 <p className="text-indigo-300 mb-4 font-medium">
                   {exp.company}
                 </p>
 
-                <p className="text-slate-400 font-light text-sm leading-relaxed">
+                <p className={`font-light text-sm leading-relaxed ${theme === 'dark' ? 'text-slate-400' : 'text-slate-600'}`}>
                   {exp.description}
                 </p>
               </motion.div>
@@ -62,7 +65,7 @@ const Experience: React.FC = () => {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ delay: idx * 0.1 }}
-                className="glass p-6 rounded-2xl border border-white/5 flex gap-6 group hover:border-purple-500/20 transition-all"
+                className={`glass p-6 rounded-2xl border flex gap-6 group hover:border-purple-500/20 transition-all ${theme === 'dark' ? 'border-white/5' : 'border-slate-300'}`}
               >
                 <div className="h-12 w-12 rounded-xl bg-purple-500/10 flex items-center justify-center text-purple-400 flex-shrink-0 group-hover:scale-110 transition-transform">
                   <Trophy size={20} />
@@ -70,14 +73,14 @@ const Experience: React.FC = () => {
 
                 <div>
                   <div className="flex justify-between items-center mb-1">
-                    <h3 className="font-bold text-slate-200">{ach.title}</h3>
+                    <h3 className={`font-bold ${theme === 'dark' ? 'text-slate-200' : 'text-slate-800'}`}>{ach.title}</h3>
 
-                    <span className="text-[10px] font-bold text-slate-500 bg-slate-800 px-2 py-1 rounded">
+                    <span className={`text-[10px] font-bold px-2 py-1 rounded ${theme === 'dark' ? 'text-slate-500 bg-slate-800' : 'text-slate-600 bg-slate-200'}`}>
                       {ach.year}
                     </span>
                   </div>
 
-                  <p className="text-sm text-slate-400">{ach.detail}</p>
+                  <p className={`text-sm ${theme === 'dark' ? 'text-slate-400' : 'text-slate-600'}`}>{ach.detail}</p>
                 </div>
               </motion.div>
             ))}

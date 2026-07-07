@@ -2,13 +2,16 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { PROJECTS } from '../constants';
 import { Github, ExternalLink } from 'lucide-react';
+import { useTheme } from '../ThemeContext';
 
 const Projects: React.FC = () => {
+  const { theme } = useTheme();
+
   return (
     <section id="projects" className="py-24 px-6 relative overflow-hidden">
 
       {/* Glow background */}
-      <div className="absolute top-0 left-0 w-[500px] h-[500px] bg-indigo-600/10 blur-[120px] rounded-full"></div>
+      <div className={`absolute top-0 left-0 w-[500px] h-[500px] blur-[120px] rounded-full ${theme === 'dark' ? 'bg-indigo-600/10' : 'bg-indigo-400/5'}`}></div>
 
       <div className="max-w-7xl mx-auto relative z-10">
 
@@ -17,7 +20,7 @@ const Projects: React.FC = () => {
             <h2 className="text-3xl md:text-5xl font-bold mb-4">
               Featured Projects
             </h2>
-            <p className="text-slate-500 max-w-md">
+            <p className={`max-w-md ${theme === 'dark' ? 'text-slate-500' : 'text-slate-600'}`}>
               Selected works that showcase my skills in engineering and system design.
             </p>
           </div>
@@ -39,7 +42,7 @@ const Projects: React.FC = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: idx * 0.2 }}
-              className="group relative overflow-hidden rounded-3xl glass border border-white/5"
+              className={`group relative overflow-hidden rounded-3xl glass border ${theme === 'dark' ? 'border-white/5' : 'border-slate-300'}`}
             >
               <div className="relative h-64 overflow-hidden">
                 <img
@@ -47,7 +50,7 @@ const Projects: React.FC = () => {
                   alt={project.title}
                   className="w-full h-full object-cover transform transition-transform duration-700 group-hover:scale-110"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent"></div>
+                <div className={`absolute inset-0 bg-gradient-to-t ${theme === 'dark' ? 'from-slate-950 via-slate-950/20' : 'from-white via-white/20'} to-transparent`}></div>
               </div>
 
               <div className="p-8 relative">
@@ -67,11 +70,11 @@ const Projects: React.FC = () => {
                   {project.title}
                 </h3>
 
-                <p className="text-slate-400 mb-4 font-light leading-relaxed">
+                <p className={`mb-4 font-light leading-relaxed ${theme === 'dark' ? 'text-slate-400' : 'text-slate-600'}`}>
                   {project.description}
                 </p>
 
-                <ul className="text-sm text-slate-400 mb-6 space-y-1 list-disc list-inside">
+                <ul className={`text-sm mb-6 space-y-1 list-disc list-inside ${theme === 'dark' ? 'text-slate-400' : 'text-slate-600'}`}>
                   {project.highlights.map((point, i) => (
                     <li key={i}>{point}</li>
                   ))}
@@ -81,7 +84,7 @@ const Projects: React.FC = () => {
                   <a
                     href={project.github}
                     target="_blank"
-                    className="flex items-center gap-2 text-sm text-slate-300 hover:text-white transition-colors"
+                    className={`flex items-center gap-2 text-sm transition-colors ${theme === 'dark' ? 'text-slate-300 hover:text-white' : 'text-slate-600 hover:text-slate-900'}`}
                   >
                     <Github size={18} /> Source
                   </a>
@@ -90,7 +93,7 @@ const Projects: React.FC = () => {
                     <a
                       href={project.live}
                       target="_blank"
-                      className="flex items-center gap-2 text-sm text-slate-300 hover:text-white transition-colors"
+                      className={`flex items-center gap-2 text-sm transition-colors ${theme === 'dark' ? 'text-slate-300 hover:text-white' : 'text-slate-600 hover:text-slate-900'}`}
                     >
                       <ExternalLink size={18} /> Live Demo
                     </a>

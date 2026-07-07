@@ -2,14 +2,14 @@ import React from "react";
 import { motion } from "framer-motion";
 import { ArrowRight, Download, ChevronDown } from "lucide-react";
 import { RESUME_DATA } from "../constants";
-import Background3D from "./Background3D";
+import { useTheme } from "../ThemeContext";
 
 
 const Hero: React.FC = () => {
+  const { theme } = useTheme();
+
   return (
     <section className="relative min-h-screen flex items-center justify-center pt-20 px-6 overflow-hidden">
-      <Background3D />
-
       <div className="max-w-7xl w-full grid grid-cols-1 lg:grid-cols-2 gap-12 items-center z-10">
         <motion.div
           initial={{ opacity: 0, x: -30 }}
@@ -20,7 +20,7 @@ const Hero: React.FC = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.2 }}
-            className="inline-block px-4 py-1.5 mb-6 rounded-full glass text-xs font-semibold tracking-widest text-indigo-400 uppercase"
+            className={`inline-block px-4 py-1.5 mb-6 rounded-full glass text-xs font-semibold tracking-widest text-indigo-400 uppercase`}
           >
             Available for Internships 2026
           </motion.span>
@@ -32,7 +32,7 @@ const Hero: React.FC = () => {
             </span>
           </h1>
 
-          <p className="text-xl text-slate-400 mb-8 max-w-lg leading-relaxed font-light">
+          <p className={`text-xl mb-8 max-w-lg leading-relaxed font-light ${theme === 'dark' ? 'text-slate-400' : 'text-slate-600'}`}>
             {RESUME_DATA.tagline}
           </p>
 
@@ -53,7 +53,7 @@ const Hero: React.FC = () => {
               rel="noopener noreferrer"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="px-8 py-4 rounded-full glass border border-white/10 text-white font-medium flex items-center gap-2 hover:bg-white/5 transition-all"
+              className={`px-8 py-4 rounded-full glass border font-medium flex items-center gap-2 hover:bg-white/5 transition-all ${theme === 'dark' ? 'border-white/10 text-white' : 'border-slate-300 text-slate-900'}`}
             >
               Resume <Download size={18} />
             </motion.a>
@@ -84,9 +84,9 @@ const Hero: React.FC = () => {
             <motion.div
               animate={{ y: [0, -15, 0] }}
               transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-              className="relative w-full h-full rounded-full overflow-hidden border-4 border-white/10 glass p-2 shadow-2xl shadow-indigo-500/10"
+              className={`relative w-full h-full rounded-full overflow-hidden border-4 glass p-2 shadow-2xl ${theme === 'dark' ? 'border-white/10 shadow-indigo-500/10' : 'border-slate-300 shadow-indigo-500/20'}`}
             >
-              <div className="w-full h-full rounded-full overflow-hidden bg-slate-800">
+              <div className={`w-full h-full rounded-full overflow-hidden ${theme === 'dark' ? 'bg-slate-800' : 'bg-slate-200'}`}>
                 <img
                   src={RESUME_DATA.profileImageUrl}
                   alt={RESUME_DATA.name}
@@ -99,7 +99,7 @@ const Hero: React.FC = () => {
             <motion.div
               animate={{ y: [0, 10, 0], x: [0, 5, 0] }}
               transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-              className="absolute -bottom-4 -right-4 glass px-4 py-2 rounded-xl border border-white/10 shadow-xl"
+              className={`absolute -bottom-4 -right-4 glass px-4 py-2 rounded-xl border shadow-xl ${theme === 'dark' ? 'border-white/10' : 'border-slate-300'}`}
             >
               <span className="text-xs font-bold text-indigo-400">
                 IIT Guwahati
@@ -112,7 +112,7 @@ const Hero: React.FC = () => {
       <motion.div
         animate={{ y: [0, 10, 0] }}
         transition={{ repeat: Infinity, duration: 2 }}
-        className="absolute bottom-10 left-1/2 -translate-x-1/2 text-slate-500"
+        className={`absolute bottom-10 left-1/2 -translate-x-1/2 ${theme === 'dark' ? 'text-slate-500' : 'text-slate-400'}`}
       >
         <ChevronDown />
       </motion.div>

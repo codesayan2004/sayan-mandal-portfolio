@@ -1,12 +1,14 @@
 
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Menu, X, Github, Linkedin } from 'lucide-react';
+import { Menu, X, Github, Linkedin, Moon, Sun } from 'lucide-react';
 import { RESUME_DATA } from '../constants';
+import { useTheme } from '../ThemeContext';
 
 const Navbar: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
+  const { theme, toggleTheme } = useTheme();
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 20);
@@ -25,7 +27,7 @@ const Navbar: React.FC = () => {
   return (
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'py-4' : 'py-6'}`}>
       <div className="max-w-7xl mx-auto px-6">
-        <div className={`glass rounded-2xl flex items-center justify-between px-6 py-3 transition-all ${isScrolled ? 'shadow-2xl shadow-indigo-500/10' : ''}`}>
+        <div className={`glass rounded-2xl flex items-center justify-between px-6 py-3 transition-all ${isScrolled ? 'shadow-2xl shadow-indigo-500/10' : ''} ${theme === 'dark' ? '' : 'border-slate-300'}`}>
           <motion.a 
             href="#"
             initial={{ opacity: 0, x: -20 }}
@@ -51,7 +53,7 @@ const Navbar: React.FC = () => {
               <a 
                 key={link.name} 
                 href={link.href} 
-                className="text-sm font-medium text-slate-300 hover:text-white transition-colors"
+                className={`text-sm font-medium transition-colors ${theme === 'dark' ? 'text-slate-300 hover:text-white' : 'text-slate-700 hover:text-slate-900'}`}
               >
                 {link.name}
               </a>
@@ -59,12 +61,15 @@ const Navbar: React.FC = () => {
           </div>
 
           <div className="hidden md:flex items-center space-x-4">
-            <a href={RESUME_DATA.github} target="_blank" className="text-slate-400 hover:text-white transition-colors"><Github size={18} /></a>
-            <a href={RESUME_DATA.linkedin} target="_blank" className="text-slate-400 hover:text-white transition-colors"><Linkedin size={18} /></a>
+            <button onClick={toggleTheme} className={`transition-colors ${theme === 'dark' ? 'text-slate-400 hover:text-white' : 'text-slate-600 hover:text-slate-900'}`}>
+              {theme === 'dark' ? <Sun size={18} /> : <Moon size={18} />}
+            </button>
+            <a href={RESUME_DATA.github} target="_blank" className={`transition-colors ${theme === 'dark' ? 'text-slate-400 hover:text-white' : 'text-slate-600 hover:text-slate-900'}`}><Github size={18} /></a>
+            <a href={RESUME_DATA.linkedin} target="_blank" className={`transition-colors ${theme === 'dark' ? 'text-slate-400 hover:text-white' : 'text-slate-600 hover:text-slate-900'}`}><Linkedin size={18} /></a>
           </div>
 
           {/* Mobile Toggle */}
-          <button onClick={() => setIsOpen(!isOpen)} className="md:hidden text-slate-300">
+          <button onClick={() => setIsOpen(!isOpen)} className={`md:hidden ${theme === 'dark' ? 'text-slate-300' : 'text-slate-700'}`}>
             {isOpen ? <X /> : <Menu />}
           </button>
         </div>
@@ -75,18 +80,22 @@ const Navbar: React.FC = () => {
         <motion.div 
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="md:hidden glass absolute top-full left-6 right-6 mt-2 rounded-2xl p-6 flex flex-col space-y-4"
+          className={`md:hidden glass absolute top-full left-6 right-6 mt-2 rounded-2xl p-6 flex flex-col space-y-4 ${theme === 'dark' ? '' : 'border-slate-300'}`}
         >
           {navLinks.map((link) => (
             <a 
               key={link.name} 
               href={link.href} 
               onClick={() => setIsOpen(false)}
-              className="text-lg font-medium text-slate-300 hover:text-white"
+              className={`text-lg font-medium transition-colors ${theme === 'dark' ? 'text-slate-300 hover:text-white' : 'text-slate-700 hover:text-slate-900'}`}
             >
               {link.name}
             </a>
           ))}
+          <button onClick={toggleTheme} className={`flex items-center gap-3 text-lg font-medium transition-colors ${theme === 'dark' ? 'text-slate-300 hover:text-white' : 'text-slate-700 hover:text-slate-900'}`}>
+            {theme === 'dark' ? <Sun size={18} /> : <Moon size={18} />}
+            {theme === 'dark' ? 'Light Mode' : 'Dark Mode'}
+          </button>
         </motion.div>
       )}
     </nav>
