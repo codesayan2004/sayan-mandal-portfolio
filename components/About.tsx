@@ -16,7 +16,7 @@ const About: React.FC = () => {
   ];
 
   return (
-    <section id="about" className={`py-24 px-6 ${theme === 'dark' ? 'bg-[#030712]' : 'bg-slate-50'}`}>
+    <section id="about" className={`py-24 px-6 ${theme === 'dark' ? 'bg-[#030712]' : 'bg-sky-100'}`}>
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
           <motion.div 

@@ -80,19 +80,47 @@ export const PROJECTS: Project[] = [
 export const SKILL_CATEGORIES: SkillCategory[] = [
   {
     name: "Languages",
-    skills: ["C", "C++", "Python", "JavaScript", "Java", "Functional Programming(Haskell)", "Logic Programming(Prolog)", "x86 Assembly (NASM)"]
+    skills: [
+      { name: "C", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg" },
+      { name: "C++", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg" },
+      { name: "Python", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" },
+      { name: "JavaScript", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" },
+      { name: "Java", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" },
+      { name: "Haskell", logo: "https://upload.wikimedia.org/wikipedia/commons/1/1c/Haskell-Logo.svg" },
+      { name: "Prolog", logo: "https://www.swi-prolog.org/download/logo/swipl-128.png" },
+      { name: "x86 Assembly", logo: "https://media.licdn.com/dms/image/v2/D4D12AQEM9F_-u1OT5Q/article-cover_image-shrink_720_1280/article-cover_image-shrink_720_1280/0/1658763190886?e=1784764800&v=beta&t=PcEBBGSJYg51pQpwbN6h_w4CE-7ZaDb5X9E6dNetgaQ" }
+    ]
   },
   {
     name: "Web Technologies",
-    skills: ["HTML5", "CSS3", "React.js", "React Native", "Django", "REST APIs", "Tailwind CSS", "Bootstrap"]
+    skills: [
+      { name: "HTML5", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" },
+      { name: "CSS3", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" },
+      { name: "React.js", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" },
+      { name: "React Native", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" },
+      { name: "Django", logo: "https://img.icons8.com/?size=100&id=IuuVVwsdTi2v&format=png&color=000000" },
+      { name: "Tailwind CSS", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg" },
+      { name: "Bootstrap", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg" }
+    ]
   },
   {
     name: "Backend & Databases",
-    skills: ["MySQL", "MongoDB", "Firebase", "Firestore"]
+    skills: [
+      { name: "MySQL", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" },
+      { name: "MongoDB", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" },
+      { name: "Firebase", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg" },
+      { name: "Firestore", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg" }
+    ]
   },
   {
     name: "DevOps & Tools",
-    skills: ["Docker", "AWS", "Git", "GitHub", "GitLab"]
+    skills: [
+      { name: "Docker", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" },
+      { name: "AWS", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-plain-wordmark.svg" },
+      { name: "Git", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" },
+      { name: "GitHub", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" },
+      { name: "GitLab", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/gitlab/gitlab-original.svg" }
+    ]
   }
 ];
 

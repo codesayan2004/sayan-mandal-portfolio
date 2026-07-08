@@ -9,9 +9,14 @@ export interface Project {
   image: string;
 }
 
+export interface Skill {
+  name: string;
+  logo: string;
+}
+
 export interface SkillCategory {
   name: string;
-  skills: string[];
+  skills: Skill[];
 }
 
 export interface Achievement {

@@ -35,7 +35,7 @@ const App: React.FC = () => {
   return (
     <>
     <Toaster position="top-right" />
-    <div className={`relative min-h-screen ${theme === 'dark' ? 'bg-[#030712] text-slate-200' : 'bg-white text-slate-900'}`}>
+    <div className={`relative min-h-screen ${theme === 'dark' ? 'bg-[#030712] text-slate-200' : 'bg-sky-100 text-slate-900'}`}>
 
       {/* Custom Cursor */}
       {/* <CustomCursor /> */}

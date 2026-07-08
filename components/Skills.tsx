@@ -32,12 +32,13 @@ const Skills: React.FC = () => {
               </h3>
               <div className="flex flex-wrap gap-2">
                 {category.skills.map((skill) => (
-                  <span 
-                    key={skill} 
-                    className={`px-3 py-1 rounded-lg text-xs font-medium transition-colors ${theme === 'dark' ? 'bg-slate-800/50 text-slate-400 group-hover:text-indigo-300' : 'bg-slate-200 text-slate-600 group-hover:text-indigo-500'}`}
+                  <div 
+                    key={skill.name} 
+                    className={`flex items-center gap-2 px-3 py-1 rounded-lg text-xs font-medium transition-colors ${theme === 'dark' ? 'bg-slate-800/50 text-slate-400 group-hover:text-indigo-300' : 'bg-slate-200 text-slate-600 group-hover:text-indigo-500'}`}
                   >
-                    {skill}
-                  </span>
+                    <img src={skill.logo} alt={skill.name} className="w-4 h-4" />
+                    {skill.name}
+                  </div>
                 ))}
               </div>
             </motion.div>

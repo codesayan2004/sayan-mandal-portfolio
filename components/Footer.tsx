@@ -7,7 +7,7 @@ const Footer: React.FC = () => {
   const { theme } = useTheme();
 
   return (
-    <footer className={`py-12 px-6 border-t ${theme === 'dark' ? 'border-white/5 bg-[#030712]' : 'border-slate-200 bg-slate-50'}`}>
+    <footer className={`py-12 px-6 border-t ${theme === 'dark' ? 'border-white/5 bg-[#030712]' : 'border-slate-200 bg-sky-100'}`}>
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
         <div className="flex items-center gap-4">
           <span className="text-xl font-bold bg-gradient-to-r from-indigo-400 to-purple-500 bg-clip-text text-transparent font-display">SM</span>
